@@ -4,7 +4,6 @@
  */
 'use strict';
 
-var find = require('array.prototype.find');
 var variableUtil = require('../util/variable');
 
 // ------------------------------------------------------------------------------
@@ -26,7 +25,7 @@ module.exports = {
      * @param {object} node A Identifier node
      */
     function checkIdentifiers(node) {
-      var variable = find(variableUtil.variablesInScope(context), function (item) {
+      var variable = variableUtil.variablesInScope(context).find(function (item) {
         return item.name === node.name;
       });
 
@@ -48,7 +47,7 @@ module.exports = {
           && node.arguments.length > 1
         ) {
           if (node.arguments[1].type === 'ObjectExpression') {
-            var style = find(node.arguments[1].properties, function(property) {
+            var style = node.arguments[1].properties.find(function(property) {
               return property.key && property.key.name === 'style' && !property.computed;
             });
             if (style) {
