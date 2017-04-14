@@ -9,7 +9,9 @@
     "lint": "eslint js/**/*.js js/**/*.jsx webpack.config.js",
     "build": "webpack",
     "dev": "webpack-dev-server",
-    "watch": "npm run build -- --watch"
+    "watch": "npm run build -- --watch",
+    "test": "export NODE_ENV=test; jest",
+    "update-test": "npm run test -- -u"
   },
   "dependencies": {
     "axios": "0.15.2",
@@ -38,7 +40,7 @@
     "babel-preset-react": "6.16.0",
     "babel-register": "6.16.0",
     "css-loader": "0.25.0",
-    "enzyme": "2.0.0",
+    "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.3.0",
     "eslint": "3.6.1",
     "eslint-config-standard": "6.1.0",
